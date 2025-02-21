@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+             *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            position: sticky;
+            top:0px;
+            padding-top:20px ;
+            padding-bottom: 20 px;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            text-align: center;
+
+        }
+        body{
+            background-color: blue;
+        }
+        main{
+            padding-top: 50px;
+            background-color: blue;
+            display:flex;
+            justify-content: space-evenly;
+        }
+        .principal{
+            border-radius: 30px;
+            background-color: white;
+            padding: 30px;
+            height: 40%;
+          
+            
+
+        }
+        .secundario{
+            border-radius: 30px;
+            background-color: white;
+            padding: 30px;
+            height: 40%;
+        
+            
+
+        }
+        label{
+            font-weight: bold;
+        }
+        .button {
+          transition-duration: 0.4s;
+          background-color: blue;
+          border-radius: 12px;
+          padding: 16px;
+        }
+
+        .button:hover {
+         background-color: white; /* Green */
+        color: blue;
+        }
+    </style>
+    <script>
+        function validarDatos() {
+            var nombre= document.getElementById("username").value;
+            var edad =document.getElementById("edad").value
+            if (nombre.length <= 3 || nombre.length >= 10){
+                alert("El nombre no puede tener menos de 3 ni mas de 10 caracteres");
+                return false;
+                
+            } 
+            if (edad.length<1) {
+                alert("No has metido edad");
+                return false;
+            }
+
+             if (parseInt(edad)<18) {
+                alert("Tienes menos de 18");
+                return false;
+            } 
+                    
+            return true;
+              
+
+                 
+         
+        }
+    </script>
+</head>
+<body>
+    <header><h1>Bienvenido a mi web</h1></header>
+    <main>
+        <div class="principal">
+               <h2>Rellena estos datos y te lo agradecere eternamente 
+            </h2> 
+        
+        </div>
+        <div class="secundario">
+    <form action="/login" method="POST" onsubmit="return validarDatos()">
+        <label for="username">Nombre Completo:</label>
+        <input type="text" placeholder="Nombre" name="username" id="username"><br>
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad"><br>
+        <label for="fecha">Fecha de nacimiento</label>
+        <input type="date" name="fecha" id="fecha"><br/>
+        <label for="genero">Genero</label>
+        <input type="radio" name="genero" id="genero" value="H" checked>Hombre
+        <input type="radio" name="genero" id="genero" value="M" >Mujer
+        <input type="radio" name="genero" id="genero" value="O" >Otro <br>
+        
+        <label for="carrera">Carrera</label>
+        <select name="carrera" id="carrera">
+            <option value="Albañil">Albañil</option>
+            <option value="Leñador">Leñador</option>
+            <option value="Pintor">Pintor</option>
+        </select><br>
+        <label for="Descripcion">Descripcion</label>
+        <textarea name="Descripcion" id="Descripcion"></textarea><br>
+
+        <input class="button" type="submit"/>
+        
+    </form>
+    </div>
+    </main>
+</body>
+</html>

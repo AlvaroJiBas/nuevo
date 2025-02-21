@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de Position</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            position: sticky;
+            top:0px;
+            padding-top:20px ;
+            padding-bottom: 20 px;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            text-align: center;
+
+
+        }
+        h1{
+            margin-bottom: 10px;
+        }
+        body{
+            background-color: blue;
+        }
+        main{
+            padding-top: 50px;
+            background-color: blue;
+            display:flex;
+            justify-content: center;
+        }
+        .principal{
+            border-radius: 30px;
+            background-color: white;
+            padding: 30px;
+            height: 40%;
+            text-align: center;
+            
+
+        }
+        .button {
+          transition-duration: 0.4s;
+          background-color: blue;
+          border-radius: 12px;
+          padding: 16px;
+        }
+
+        .button:hover {
+         background-color: white; /* Green */
+        color: blue;
+        }
+       
+    </style>
+</head>
+<body>
+    <header><h1>Bienvenido a mi web</h1></header>
+    <main>
+        <div class="principal">
+            <h2>Estoy encantado de tenerte aqui, pulsa el boton y entra anda</h2><br>
+            <a href="/login"><button class="button">Pasa</button></a>
+        </div>
+    </main>
+
+  
+
+
+</body>
+</html>
