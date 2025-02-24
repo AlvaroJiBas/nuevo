@@ -1,54 +1,58 @@
-// server.mjs
 import { createServer } from 'node:http';
-import fs from "node:fs";
-import querystring from "node:querystring";
+import fs from 'node:fs';
+import querystring from 'node:querystring';
+
+
 const server = createServer((req, res) => {
+    
     var url = req.url;
     var fileName = "";
-    url=url.substring(1);
-    var body ="";
-    if (url === '') {
-       fileName="index.html";}
-    else if (url === 'login') {
-        if(req.method=="POST"){
-            req.on('data', chunk =>{
-                body+=chunk.toString();
-            });
-            req.on('end', () => {
-            // var datos=  querystring(body);
-           
-                //res.end();
-                //redireccionamos
-                fileName="thanks.html";
-                res.end();
-            });
-        }else{
+    if (url === "/") {
+        fileName = "index.html";
+    }
+    else if (url === "/login") {
         fileName = "login.html";
-        }
-    }else if (url === 'thanks'){
-        fileName="thanks.html";
     }
-    
-    else {
-        res.statusCode = 404;
-        res.write('Not Found');
-        res.end();
-        return;
+    else if (url === "/thanks") {
+        fileName = "thanks.html";
     }
-    fs.readFile(fileName, "utf-8", (err, data) => {
+
     
-    if (err) {
-        res.statusCode = 500;
-        res.write('Internal Server Error');
-        res.end();
-    }else{
-        res.write(data.toString());
-        res.end();};
-         });
-});
-// starts a simple http server locally on port 3000
-server.listen(3001, '127.0.0.1', () => {
-console.log('Listening on 127.0.0.1:3001');
+    if (req.method === 'GET') {
+        fs.readFile(fileName, (err, data) => {
+            if (err) {
+                res.statusCode = 404;
+                res.setHeader('Content-Type', 'text/plain');
+                res.end('Not Found');
+            } else {
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'text/html');
+                res.end(data);
+            }
+        });
+    }
+    else if (req.method === 'POST' && req.url === '/login') {
+        let body = '';
+
+        req.on('data', chunk => {
+            body += chunk.toString(); // Collect chunks
+        });
+
+        req.on('end', () => {
+            // Format 'username=john_doe&password=secure123'
+            console.log('Full request body:', body); // Now we have the full data
+            // TO DO: coger los datos del querystring
+            var data=querystring.parse(body);
+            
+            res.writeHead(302, { 'Location': '/thanks' });  // redirect
+            res.end('Data received!');
+        });
+    } else {
+        res.end('Send a POST request to /login');
+    }
 });
 
+server.listen(3000, () => {
+    console.log('Server running on http://127.0.0.1:3000/');
+});
 // run with `node server.mjs`
