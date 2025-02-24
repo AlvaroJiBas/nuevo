@@ -43,7 +43,16 @@ const server = createServer((req, res) => {
             console.log('Full request body:', body); // Now we have the full data
             // TO DO: coger los datos del querystring
             var data=querystring.parse(body);
-            
+            const dataToAppend = "nombre = " + data.username + " Edad: "+ data ;
+
+            // Write data to the file with the append flag
+            fs.writeFile('datos.txt', dataToAppend, { flag: 'a' }, (err) => {  //O fs.appendFile('example.txt', dataToAppend, (err) => {
+                if (err) {
+                    console.error('Error writing to file:', err);
+                } else {
+                    console.log('Data appended successfully!');
+                }
+            });
             res.writeHead(302, { 'Location': '/thanks' });  // redirect
             res.end('Data received!');
         });
