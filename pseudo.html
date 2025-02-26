@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1::before{
+            content: "📖";
+            position: relative;
+        }
+        h1::after{
+            content:"✍️";
+            position: relative;
+        }
+        p{
+            background-color: yellow;
+        }
+        p::first-letter{
+            font-size: 30px;
+            background-color: grey;
+            color: green;
+        }
+        input{
+            color:blue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Bienvenidos a mi blog</h1>
+    <p>Este es un blog sobre diseño web y programacion.</p>
+    <input type="button" value="Escribe tu comentario">
+</body>
+</html>

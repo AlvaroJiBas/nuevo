@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <h1>Bienvenidos</h1>
+    <div id="nombre">Nombre</div>
+    <div id="edad"></div>
+    <div id="edadf"></div>
+    <div id="ciudad"></div>
+    <script>
+        //plasmar los querystring 
+        const par = new URLSearchParams(window.location.search);
+        if (par.has("nom")){
+        var nom = document.getElementById("nombre");
+        nombre.innerText = par.get("nom");
+        };
+        if (par.has("edad")){
+        var edad = document.getElementById("edad");
+        edad.innerText= par.get("edad");
+        var edadf =document.getElementById("edadf");
+        var numero= parseInt(par.get("edad")) + 10;
+        edadf.innerText="Dentro de 10 años tendras "+ numero + " años"; 
+        };
+        if (par.has("ciudad")){
+        var ciudad = document.getElementById("ciudad");
+        ciudad.innerText= par.get("ciudad");
+        };
+        
+    </script>
+</body>
+</html>

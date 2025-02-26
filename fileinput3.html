@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        function carga() {
+           
+            const archivo = document.getElementById("archivo").files;
+            const donde = document.getElementById("resultado");
+         
+        
+                for (let index = 0; index < archivo.length; index++) {
+                    var reader = new FileReader();
+                    console.log("ha entrado");
+                    reader.onload = function(e){
+                       var image =new Image();
+                       image.src =e.target.result;
+                        donde.appendChild(image);
+                        console.log("bien");
+                    };
+                    reader.onerror = function(e){
+                    console.log("mal");
+                 
+                    }
+                     reader.readAsDataURL(archivo[index]); 
+                    
+                
+                };
+            
+              
+                    
+               
+              /*  reader.onprogress = function(e){
+                    console.log("bien");
+                    donde.innerHTML=e.target.result;
+                };*/
+                
+               
+            }
+        
+    </script>
+</head>
+<body>
+    <h1>Seleccionar archivo</h1>
+    <input type="file" name="archivo" id="archivo" accept=".jpg" multiple onchange="carga()">
+    <div id="resultado">
+       </div>
+    </div>
+</body>
+</html>

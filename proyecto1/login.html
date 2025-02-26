@@ -61,6 +61,11 @@
          background-color: white; /* Green */
         color: blue;
         }
+        .foto{
+            width:10vw;
+            height:auto;
+            border-radius:50%;
+        }
     </style>
     <script>
         function validarDatos() {
@@ -87,6 +92,28 @@
                  
          
         }
+        function subirFoto() {
+            const reader =new FileReader();
+            var fotito =document.getElementById("foto").files[0];
+          
+            var sitio =document.getElementById("sitio");
+            if (parseInt(fotito.size)>=1000000) {
+                alert("Ocupa mas de 1 MB")
+            }
+             else if (fotito){
+                reader.onload=function(e){
+                    var img =new Image();
+                    img.src=e.target.result;
+                    img.className="foto"
+                    sitio.appendChild(img);
+                };
+                reader.onerror=function(e){
+
+                }
+                reader.readAsDataURL(fotito);
+            }
+            
+        }
     </script>
 </head>
 <body>
@@ -103,6 +130,8 @@
         <input type="text" placeholder="Nombre" name="username" id="username"><br>
         <label for="edad">Edad:</label>
         <input type="number" name="edad" id="edad"><br>
+        <label for=" foto">Foto</label>
+        <input type="file" name="foto" id="foto" onchange="subirFoto();" accept="image/*"><div id="sitio" width="20px" height="40px"></div><br>
         <label for="fecha">Fecha de nacimiento</label>
         <input type="date" name="fecha" id="fecha"><br/>
         <label for="genero">Genero</label>

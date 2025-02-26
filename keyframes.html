@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+
+    }
+    @keyframes fadeInMove{
+        0%{
+            opacity: 0,1;
+            transform: translateY(-50px) rotate(0deg);
+           
+        }
+        50%{
+            opacity: 0,5;
+            transform: translateY(20px);
+            
+
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) rotate(360deg);
+           
+        }
+    }
+    main{
+        display: flexbox;
+        justify-content: center;
+        align-content: center;
+
+    }
+    .banner{
+        margin-left: 20%;
+        padding: 30px;
+        position: relative;
+        background-color: blueviolet;
+        animation: fadeInMove;
+        animation-duration: 3s;
+        width: 50%;
+        height: 20%;
+        color:white;
+        border-radius: 10%;
+        text-align: center;
+
+    }
+</style>
+<body>
+    <main>
+    <div class="banner">
+        <h1>Bienvenidos a nuestra pagina</h1>
+        <button class="cta">Comienza</button>
+    </div>
+</main>
+</body>
+</html>

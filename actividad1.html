@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de Position</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        header{
+            position: sticky;
+            top:0px;
+            padding-top:20px ;
+            padding-bottom: 20 px;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            text-align: center;
+
+
+        }
+        h1{
+            margin-bottom: 10px;
+        }
+        body{
+            background-color: blue;
+        }
+        main{
+            padding-top: 20px;
+            background-color: blue;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+        .principal{
+            margin-top: 20px;
+            border-radius: 30px;
+            background-color: white;
+            padding: 30px;
+            height: 40%;
+            width:80%;
+            
+            
+
+        }
+        .button {
+          transition-duration: 0.4s;
+          background-color: blue;
+          border-radius: 12px;
+          padding: 16px;
+        }
+
+        .button:hover {
+         background-color: white; /* Green */
+        color: blue;
+        }
+       
+    </style>
+</head>
+<body>
+    <header><h1>Bienvenido a mi web</h1></header>
+    <main>
+                <div class="principal">
+                    <h2>Video de capatizacion</h2>
+                    <p>Esto es un video guay</p>
+                    <video width="620" height="240" controls>
+                     <source src="assets/video/" type="video/mp4">
+                     Tu navegador no soporta la etiqueta de video.
+                    </video>
+                </div>
+                <div class="principal">
+            <!-- Ejemplo de <audio> -->
+                    <h2>Audio de caparizacion</h2>
+                    <p>Esto es un audio guay</p>
+                    <audio controls width="400">
+                    <source src="assets/audio/" type="audio/mp3">
+                    Tu navegador no soporta la etiqueta de audio.
+                    </audio>
+                </div>
+    </main>
+    
+  
+
+
+</body>
+</html>

@@ -7,13 +7,15 @@ const server = createServer((req, res) => {
     
     var url = req.url;
     var fileName = "";
+    console.log(url.startsWith("/thanks"));
     if (url === "/") {
         fileName = "index.html";
     }
     else if (url === "/login") {
         fileName = "login.html";
     }
-    else if (url === "/thanks") {
+    else if (url.startsWith("/thanks")) {
+        console.log("entra aqui")
         fileName = "thanks.html";
     }
 
@@ -43,17 +45,17 @@ const server = createServer((req, res) => {
             console.log('Full request body:', body); // Now we have the full data
             // TO DO: coger los datos del querystring
             var data=querystring.parse(body);
-            const dataToAppend = "nombre = " + data.username + " Edad: " + data.edad ;
+            const dataToAppend = "?nombre=" + data.username + "&Edad=" + data.edad ;
 
             // Write data to the file with the append flag
-            fs.writeFile('datos.txt', dataToAppend, { flag: 'a' }, (err) => {  //O fs.appendFile('example.txt', dataToAppend, (err) => {
+            /*fs.writeFile('datos.txt', dataToAppend, { flag: 'a' }, (err) => {  //O fs.appendFile('example.txt', dataToAppend, (err) => {
                 if (err) {
                     console.error('Error writing to file:', err);
                 } else {
                     console.log('Data appended successfully!');
                 }
-            });
-            res.writeHead(302, { 'Location': '/thanks' });  // redirect
+            });*/
+            res.writeHead(302, { 'Location': '/thanks' + dataToAppend});  // redirect
             res.end('Data received!');
         });
     } else {

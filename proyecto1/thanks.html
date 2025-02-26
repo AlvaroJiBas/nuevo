@@ -40,17 +40,30 @@
         }
        
     </style>
+   
 </head>
 <body>
     <header><h1>Bienvenido a mi web</h1></header>
     <main>
         <div class="principal">
-            <h2>Gracias por haberme dado tus datos, ire a visitarte pronto</h2><br>
+            <h2 id="titulo"></h2><br>
            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fm%2FEUrgDVv8DDkAAAAC%2Fevil-laugh.gif&f=1&nofb=1&ipt=a3e246c4a7bc4ce08b4266c200c531d9f2a634dc71114ba859c99caf97b2090c&ipo=images" ></img>
         </div>
     </main>
 
-  
+    <script>
+        var param= new URLSearchParams(window.location.search);
+        if (param.has("nombre")){
+            var nombre=param.get("nombre");
+        }
+        if (param.has("Edad")){
+       
+            var edad=param.get("Edad");
+        }
+        var tit = document.getElementById("titulo");
+
+        tit.innerHTML=`Gracias ${nombre} de ${edad} por darme tus datos, en breves ire a visitarte`;
+    </script>
 
 
 </body>
