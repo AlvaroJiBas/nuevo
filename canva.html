@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    canvas{
+        border:1px solid black;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+    <canvas id="lienzo" width="500px" height="400px"></canvas>
+    <script>
+        var x=75;
+        var y=75;
+
+        const lienzo=document.getElementById("lienzo");
+        const ctx =lienzo.getContext("2d");
+       /* lienzo.addEventListener("click", (e) =>{
+            x=e.x;
+            y=e.y;
+            tocarCuadrado(x,y);
+        })*/
+        var color=0;
+        const radio =30;
+        var contador=0;
+        
+        var interval =setInterval(pintarCirculo(),1000)
+        function pintarCirculo() {
+            console.log(x);
+            ctx.beginPath();
+            if (contador>=20){
+                console.log(x);
+                clearInterval(interval);
+            }
+            switch (color) {
+                case 0:
+                ctx.fillStyle = "blue";
+                color+=1;
+                    break;
+                    case 1:
+                ctx.fillStyle = "red";
+                color+=1;
+                    break;
+                    case 2:
+                ctx.fillStyle = "green";
+                color+=1;
+                    break;
+                    case 3:
+                ctx.fillStyle = "purple";
+                color=0;
+                    break;
+            
+                default:
+                    break;
+            }
+            if (x>500){
+                
+            ctx.arc(x,y,radio,0,Math.PI);
+            ctx.stroke();
+            x+=75;
+            contador+=1;
+            }else{
+                x=75;
+                y+=75;
+                ctx.arc(x,y,radio,0,Math.PI);
+                ctx.stroke();
+                contador+=1
+            }
+            
+        }
+        
+
+        
+        function tocarCuadrado(x,y){
+            
+       
+        ctx.fillRect(x-25,y-25,20,20);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="css/actividad.css">
+<script src="js/actividad.js" defer></script>
+</head>
+<body>
+    <a href="http://www.google.com"><img src="assets/gatr.jpg" alt="gatitos" height="200px" width="auto"></a>
+    <br/>
+    <button onclick="mostrarNombre()">Dime tu nombre</button><br>
+    <p id="nombre"></p><br>
+    <div name="container" class="contenedor">
+        <div class="contenido">Pepe Botella</div>
+        <div class="contenido">Jose antonio</div>
+        <div class="contenido">Andres</div>
+
+    </div>
+    <div>
+        <table  class="tabla">
+        <th>
+            <tr>
+                <td>Nombre</td>
+                <td>Edad</td>
+                <td>Ciudad</td>
+                <td>Ocupacion</td>
+            </tr>
+        </th>
+            <tr>
+                <td>Alvar</td>
+                <td>35</td>
+                <td>San Sebastian</td>
+                <td>IT</td>
+            </tr>
+            <tr>
+                <td>Pepe</td>
+                <td>40</td>
+                <td>Vitoria</td>
+                <td>Albañil</td>
+            </tr>
+            <tr>
+                <td>Jon</td>
+                <td>13</td>
+                <td>Bilbo</td>
+                <td>estudiante</td>
+            </tr>
+            <tr>
+                <td>Jon</td>
+                <td>13</td>
+                <td>Bilbo</td>
+                <td>estudiante</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombres" id="nombres">
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad">
+        <button onclick="decirNombre()"> Clickclick</button>
+    </div>
+    <div>
+        <button onclick="contarSecreto()" id="boton">Te voy a contar un secreto</button>
+        <p><progress id="barra" value="0" max="100"></progress></p>
+        <p id ="secreto"></p>
+    </div>
+</body>
+</html>
